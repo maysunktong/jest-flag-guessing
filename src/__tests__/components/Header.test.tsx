@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Header from "@/components/Header";
 
-describe("Header", () => {
+describe("Test Header component", () => {
   test("Page title text shown", () => {
     render(<Header />);
 

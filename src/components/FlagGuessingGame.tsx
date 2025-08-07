@@ -9,11 +9,14 @@ type Country = {
   imageSrc: string;
 };
 
+/* Fisher-Yates Shuffle (Best Practice) */
+/* const x = <T>(...) => {...}; // TS might think <T> is a JSX tag like <div>
+ */
 function shuffleArray<T>(arr: T[]): T[] {
   const array = [...arr];
-  for (let i = array.length; i > 0; i--) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
