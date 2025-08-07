@@ -2,7 +2,6 @@
 
 import { data } from "@/data/flags";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 type Country = {
   name: string;
