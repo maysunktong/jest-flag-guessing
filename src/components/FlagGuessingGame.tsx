@@ -25,6 +25,7 @@ const FlagGuessingGame = () => {
   const [options, setOptions] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const startGame = () => {
     const randomFlag = data[Math.floor(Math.random() * data.length)];
@@ -38,6 +39,7 @@ const FlagGuessingGame = () => {
     setOptions(allChoices);
     setSelected(null);
     setIsCorrect(null);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -49,8 +51,12 @@ const FlagGuessingGame = () => {
   };
 
   const handleGuess = (item: string) => {
+    setLoading(true);
     setSelected(item);
-    setIsCorrect(item === flag.name);
+    setTimeout(() => {
+      setIsCorrect(item === flag.name);
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -79,10 +85,13 @@ const FlagGuessingGame = () => {
                 : "bg-blue-600 hover:bg-blue-800"
             }`}
           >
-            {option}
+           {option}
           </button>
         ))}
-        {isCorrect !== null && (
+        {loading && (
+          <p className="text-center text-lg py-4 animate-pulse">Checking...</p>
+        )}
+        {!loading && isCorrect !== null && (
           <>
             <p className="text-center text-2xl p-4">
               {isCorrect ? "✅ Correct!" : `❌ Wrong. Answer is ${flag.name}.`}
