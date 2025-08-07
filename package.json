@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:watchAll": "jest --watchAll"
+    "test:watch": "jest --watch --verbose",
+    "test:watchAll": "jest --watchAll --verbose"
   },
   "dependencies": {
     "next": "15.4.5",

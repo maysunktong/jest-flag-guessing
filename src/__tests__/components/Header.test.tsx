@@ -19,13 +19,13 @@ describe("Header", () => {
     expect(pageTitleByRole).toBeInTheDocument();
   });
 
-  test("Correct Subtitle inside Header", () => {
+  test("Subtitle inside Header", () => {
     render(<Header />);
 
-    const subTitleText = screen.getByRole("heading", {
+    const subTitle = screen.getByRole("heading", {
       level: 2,
       name: /our world is full of beautiful flags/i,
     });
-    expect(subTitleText).toBeInTheDocument();
+    expect(subTitle).toBeInTheDocument();
   });
 });
