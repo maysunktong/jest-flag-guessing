@@ -28,4 +28,21 @@ describe("Test Header component", () => {
     });
     expect(subTitle).toBeInTheDocument();
   });
+
+  /* Snapshot testing */
+  test("Header container", () => {
+    const { container } = render(<Header />);
+    expect(container).toMatchSnapshot();
+  });
+
+   test("Header matches snapshot", () => {
+    const { getByText } = render(<Header />);
+    const heading = getByText(/flags of the world/i);
+    expect(heading).toMatchSnapshot();
+  });
+
+  test('Header fragment matches snapshot', () => {
+  const { asFragment } = render(<Header />);
+  expect(asFragment()).toMatchSnapshot();
+});
 });

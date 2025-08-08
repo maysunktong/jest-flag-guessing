@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Test Header component Header container 1`] = `
+<div>
+  <header
+    class="text-center"
+  >
+    <h1
+      class="font-bold uppercase text-5xl p-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500"
+    >
+      Flags of the world
+    </h1>
+    <h2
+      class="py-4 text-2xl"
+    >
+      Our world is full of 
+      beautiful
+       flags.
+    </h2>
+  </header>
+</div>
+`;
+
+exports[`Test Header component Header fragment matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="text-center"
+  >
+    <h1
+      class="font-bold uppercase text-5xl p-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500"
+    >
+      Flags of the world
+    </h1>
+    <h2
+      class="py-4 text-2xl"
+    >
+      Our world is full of beautiful flags.
+    </h2>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`Test Header component Header matches snapshot 1`] = `
+<h1
+  class="font-bold uppercase text-5xl p-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500"
+>
+  Flags of the world
+</h1>
+`;

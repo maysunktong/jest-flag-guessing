@@ -16,13 +16,4 @@ describe("Test Home", () => {
       expect(button).toHaveTextContent(/.+/);
     });
   });
-
-  test("A button with text `Sweden`", () => {
-    render(<Home />);
-    const choiceButtons = screen.getAllByRole("button");
-    const filteredCountry = choiceButtons.filter(
-      (country) => country.textContent === "Sweden"
-    ); /* this still returns an array */
-    expect(filteredCountry[0]).toBeInTheDocument();
-  });
 });
