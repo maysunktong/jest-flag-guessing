@@ -20,6 +20,11 @@ function shuffleArray<T>(arr: T[]): T[] {
   return array;
 }
 
+/* Short and biased method to shuffle */
+/* function shuffleArray<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5)
+} */
+
 const FlagGuessingGame = () => {
   const [flag, setFlag] = useState<Country>(data[0]);
   const [options, setOptions] = useState<string[]>([]);
@@ -64,11 +69,11 @@ const FlagGuessingGame = () => {
       <img
         src={flag.imageSrc}
         alt={flag.name}
-        width={500}
-        height={400}
-        className="w-auto h-100"
+        width={200}
+        height={100}
+        className="w-auto h-60"
       />
-      <div className="flex flex-col w-sm gap-3 py-6">
+      <div className="flex w-auto gap-3 py-6">
         {options.map((option) => (
           <button
             type="button"
@@ -85,27 +90,27 @@ const FlagGuessingGame = () => {
                 : "bg-blue-600 hover:bg-blue-800"
             }`}
           >
-           {option}
+            {option}
           </button>
         ))}
-        {loading && (
-          <p className="text-center text-lg py-4 animate-pulse">Checking...</p>
-        )}
-        {!loading && isCorrect !== null && (
-          <>
-            <p className="text-center text-2xl p-4">
-              {isCorrect ? "✅ Correct!" : `❌ Wrong. Answer is ${flag.name}.`}
-            </p>
-            <button
-              className="text-xl font-bold cursor-pointer hover:text-gray-500"
-              type="button"
-              onClick={restartGame}
-            >
-              Restart
-            </button>
-          </>
-        )}
       </div>
+      {loading && (
+        <p className="text-center text-lg py-4 animate-pulse">Checking...</p>
+      )}
+      {!loading && isCorrect !== null && (
+        <>
+          <p className="text-center text-2xl p-4">
+            {isCorrect ? "✅ Correct!" : `❌ Wrong. Answer is ${flag.name}.`}
+          </p>
+          <button
+            className="text-xl font-bold cursor-pointer hover:text-gray-500"
+            type="button"
+            onClick={restartGame}
+          >
+            Restart
+          </button>
+        </>
+      )}
     </div>
   );
 };
